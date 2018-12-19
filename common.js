@@ -1,4 +1,3 @@
-
 (function() {
 	// get the container of user items
 	var buttonWrap = document.getElementById('js-btn-wrap');

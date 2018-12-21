@@ -85,8 +85,3 @@ function ActionButton (elemsContainer) {
 
 	return module;
 };
-
-var elemsContainer = document.getElementById('js-btn-wrap');
-var actionBtn = new ActionButton(elemsContainer);
-
-actionBtn.init();

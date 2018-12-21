@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="main.css">
+    <script src="../../dist/js/common.js"></script>
+    <link rel="stylesheet" href="../../dist/css/main.css">
 </head>
 
 <body>
-
     <div class="wrap" id="js-btn-wrap">
         <div class="item"></div>
         <div class="item"></div>
@@ -24,7 +24,12 @@
         </defs>
     </svg>
 
-    <script src="common.js"></script>
+    <script type="text/javascript">
+        var elemsContainer = document.getElementById('js-btn-wrap');
+        var actionBtn = new ActionButton(elemsContainer);
+
+        actionBtn.init();
+    </script>
 </body>
 
 </html>

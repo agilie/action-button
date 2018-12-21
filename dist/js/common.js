@@ -2,6 +2,7 @@ function ActionButton (elemsContainer) {
 	var module = {};
 	
 	module.options = {
+		isOpen: false,
 		btnSize: 80,
 		backgroundColor: 'rgb(249, 180, 120)',
 		itemsOpenType: 'radial',
@@ -46,29 +47,35 @@ function ActionButton (elemsContainer) {
 		btn.style.backgroundColor = module.options.backgroundColor;
 
 		btn.addEventListener('click', function() {
-			var btn = this;
-			var items = elemsContainer.children;
-			var toggleClass = setOpenType(module.options.itemsOpenType);
-			var itemsCount = items.length - 1;
-			var delayTime = (500 * itemsCount);
-
-			btn.classList.add('addBtn--active');
-			setTimeout(function() {
-				btn.classList.remove('addBtn--active');
-			}, delayTime);
-			for(var i = 1; i < items.length; i++) {
-				items[i].classList.toggle(toggleClass);
-			}
+			setActiveStatus(btn);
 		})
 
 		return btn;
 	}
-	function configurateItems() {
+	function configurateItems(btnElem) {
 		var items = elemsContainer.children;
 
 		for(var i = 0; i < items.length; i++) {
 			items[i].classList.add('addBtn__item');
 			items[i].style.backgroundColor = module.options.itemsBackgroundColor[i];
+			items[i].addEventListener('click', function() {
+				setActiveStatus(btnElem);
+			})
+		}
+	}
+	function setActiveStatus(btn) {
+		module.options.isOpen ? module.options.isOpen = false : module.options.isOpen = true;
+		var items = elemsContainer.children;
+		var toggleClass = setOpenType(module.options.itemsOpenType);
+		var itemsCount = items.length - 1;
+		var delayTime = (500 * itemsCount);
+
+		btn.classList.add('addBtn--active');
+		setTimeout(function() {
+			btn.classList.remove('addBtn--active');
+		}, delayTime);
+		for(var i = 1; i < items.length; i++) {
+			items[i].classList.toggle(toggleClass);
 		}
 	}
 
@@ -76,7 +83,7 @@ function ActionButton (elemsContainer) {
 		var obj = Object.assign(module.options, settings);
 		var btn = createBtn();
 
-		configurateItems();
+		configurateItems(btn);
 		elemsContainer.insertBefore(btn, elemsContainer.firstChild);
 		elemsContainer.classList.add('addBtn__wrap', setOpenDirection(obj.itemsOpenDirection));
 		

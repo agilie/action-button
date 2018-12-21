@@ -88,6 +88,7 @@
   z-index: 5;
   width: 45px;
   height: 45px;
+  cursor: pointer;
   background: url("/icons/close_2.svg") no-repeat center/15px, #FF5722;
   border-radius: 50%;
   -webkit-transition: -webkit-transform .8s ease;

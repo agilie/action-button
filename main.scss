@@ -4,8 +4,8 @@ $colors: #D32F2F, #FF4081, #7B1FA2, #7C4DFF, #2196F3, #03A9F4, #00BCD4, #009688,
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 400px;
-  height: 400px;
+  // width: 400px;
+  height: 300px;
   border: 2px solid gray;
 }
 // our Main Button
@@ -64,7 +64,7 @@ $colors: #D32F2F, #FF4081, #7B1FA2, #7C4DFF, #2196F3, #03A9F4, #00BCD4, #009688,
     z-index: 5;
     width: 45px;
     height: 45px;
-    background: url('icons/add.svg') no-repeat center / 15px, #FF5722;
+    background: url('icons/close_2.svg') no-repeat center / 15px, #FF5722;
     border-radius: 50%;
     transition: transform .8s ease;
     @for $i from 1 through 10 {

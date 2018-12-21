@@ -1,7 +1,7 @@
 # Agilie/Action-button
 
 [![install size](https://packagephobia.now.sh/badge?p=@agilie/action-button)](https://packagephobia.now.sh/result?p=@agilie/action-button)
-[![](https://img.shields.iohttps://github.com/agilie/action-button)](https://github.com/agilie/action-button)
+[![](https://img.shields.io/github/license/agilie/action-button.svg)](https://github.com/agilie/action-button/tree/master)
 
 
 This is fixed floating action button.

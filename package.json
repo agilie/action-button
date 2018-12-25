@@ -1,27 +1,27 @@
 {
-"name": "@agilie/action-button",
-"version": "0.1.2",
-"description": "Action button for user interactions",
-"main": "index.js",
-"scripts": {
-"test": "echo \"Error: no test specified\" && exit 1"
-},
-"repository": {
-"type": "git",
-"url": "https://github.com/agilie/action-button"
-},
-"contributors": [
-"Agilie Team <info@agilie.com> (https://github.com/agilie)"
-],
-"keywords": [
-"button",
-"action",
-"image",
-"UI"
-],
-"bugs": {
-"url": "https://github.com/agilie/action-button/issues"
-},
-"author": "Agilie Team <info@agilie.com> (https://agilie.com)",
-"license": "MIT"
+  "name": "@agilie/action-button",
+  "version": "0.1.1",
+  "description": "Action button for user interactions",
+  "main": "dist/common.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agilie/action-button"
+  },
+  "contributors": [
+    "Agilie Team <info@agilie.com> (https://github.com/agilie)"
+  ],
+  "keywords": [
+    "button",
+    "action",
+    "image",
+    "UI"
+  ],
+  "bugs": {
+    "url": "https://github.com/agilie/action-button/issues"
+  },
+  "author": "Agilie Team <info@agilie.com> (https://agilie.com)",
+  "license": "MIT"
 }

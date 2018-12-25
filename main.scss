@@ -46,7 +46,6 @@ $colors: #D32F2F, #FF4081, #7B1FA2, #7C4DFF, #2196F3, #03A9F4, #00BCD4, #009688,
   padding: 0;
 
   cursor: pointer;
-  font-size: 0;
   background: url('/icons/plus_2.svg') no-repeat center / 25px;
   border: 0;
   border-radius: 50%;
@@ -54,6 +53,16 @@ $colors: #D32F2F, #FF4081, #7B1FA2, #7C4DFF, #2196F3, #03A9F4, #00BCD4, #009688,
     animation-duration: .5s;
     animation-name: scaleIn;
     animation-iteration-count: infinite;
+    animation-timing-function: ease;
+  }
+  &--open {
+    animation-duration: .5s;
+    animation-name: scaleIn;
+    animation-timing-function: ease;
+  }
+  &--close {
+    animation-duration: .5s;
+    animation-name: scaleInOut;
     animation-timing-function: ease;
   }
   &:focus {
@@ -64,15 +73,15 @@ $colors: #D32F2F, #FF4081, #7B1FA2, #7C4DFF, #2196F3, #03A9F4, #00BCD4, #009688,
     z-index: 5;
     width: 45px;
     height: 45px;
+    
     cursor: pointer;
     background: url('/icons/close_2.svg') no-repeat center / 15px, #FF5722;
     border-radius: 50%;
-    transition: transform .8s ease;
+    transition: transform ease;
     @for $i from 1 through 10 {
       &:nth-child(#{$i + 1}) {
         color: #fff;
         background-color: nth($colors , $i);
-        transition-delay: (0.0s + ($i - 1) * 0.5);
       }
     }
     &.show-radial {
@@ -142,17 +151,8 @@ $colors: #D32F2F, #FF4081, #7B1FA2, #7C4DFF, #2196F3, #03A9F4, #00BCD4, #009688,
   0% {
     transform: scale(1);
   }
-  20% {
-    transform: scale(0.9);
-  }
-  40% {
+  50% {
     transform: scale(0.85);
-  }
-  60% {
-    transform: scale(0.8);
-  }
-  80% {
-    transform: scale(0.9);
   }
   100% {
     transform: scale(1);

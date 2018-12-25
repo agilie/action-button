@@ -29,20 +29,18 @@ $ npm install @agilie/action-button
 ```
 
 ```js
-var elemsContainer = document.getElementById('js-btn-wrap');
-var actionBtn = new ActionButton(elemsContainer);
-
-actionBtn.init();
+var elemsWrap = document.getElementById('js-btn-wrap');
+var actionBtn = new ActionBtn(elemsWrap);
 ```
 
 ##### As a result:
 
 ```html
   <div class="wrap addBtn__wrap top-left" id="js-btn-wrap">
-    <button class="addBtn" id="js-addBtn" type="button" style="width: 80px; height: 80px; background-image: url('/icons/plus_2.svg'); background-size: 30px; background-color: rgb(249, 180, 120);"></button>
-    <div class="item addBtn__item" style="background-color: rgb(117, 174, 253);"></div>
-    <div class="item addBtn__item" style="background-color: rgb(247, 113, 109);"></div>
-    <div class="item addBtn__item" style="background-color: rgb(251, 213, 112);"></div>
+    <button class="addBtn" type="button" style="width: 80px; height: 80px; background-image: url('/icons/plus_2.svg'); background-size: 30px; background-color: rgb(249, 180, 120);"></button>
+    <div class="item addBtn__item" style="background-color: rgb(117, 174, 253); transition-delay: 0s; transition-duration: 0.8s;"></div>
+    <div class="item addBtn__item" style="background-color: rgb(247, 113, 109); transition-delay: 0.5s; transition-duration: 0.8s;"></div>
+    <div class="item addBtn__item" style="background-color: rgb(251, 213, 112); transition-delay: 1s; transition-duration: 0.8s;"></div>
   </div>
 ```
 
@@ -58,9 +56,7 @@ actionBtn.init();
   </div>
   <script type="text/javascript">
     var elemsContainer = document.getElementById('js-btn-wrap');
-    var instances = new AgilieBtn(elemsContainer);
-
-    instances.init();
+    var instances = new ActionBtn(elemsContainer);
   </script>
 ```
 ![Preview](examples/default/action-button_01.png)

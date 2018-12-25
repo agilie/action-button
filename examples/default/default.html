@@ -26,9 +26,16 @@
 
     <script type="text/javascript">
         var elemsContainer = document.getElementById('js-btn-wrap');
-        var actionBtn = new ActionButton(elemsContainer);
-
-        actionBtn.init();
+        var testABtn = new ActionBtn(elemsContainer, {
+            actionBtnSize: 80,
+            itemsSize: 45,
+        });
+        document.addEventListener('ActionBtnOpened', function() {
+			console.info('is opened');
+        })
+        document.addEventListener('ActionBtnClosed', function() {
+			console.info('is closed');
+		})
     </script>
 </body>
 

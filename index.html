@@ -27,6 +27,19 @@
     </svg>
 
     <script src="common.js"></script>
+    <script>
+        var elemsWrap = document.getElementById('js-btn-wrap');
+        var testABtn = new ActionBtn(elemsWrap, {
+            actionBtnSize: 80,
+            itemsSize: 45,
+        });
+        document.addEventListener('ActionBtnOpened', function() {
+			console.info('is opened');
+        })
+        document.addEventListener('ActionBtnClosed', function() {
+			console.info('is closed');
+		})
+    </script>
 </body>
 
 </html>

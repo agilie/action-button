@@ -21,15 +21,17 @@
     <button id="close">Close</button>
     <button id="" onclick="console.log(testABtn.getOpenStatus())">getStatus</button>
 
-    <script src="common.js"></script>
+    <script src="dist/js/common.js"></script>
     <script>
         var open = document.getElementById('open');
         var close = document.getElementById('close');
         var elemsWrap = document.getElementById('js-btn-wrap');
-        var testABtn = new ActionBtn(elemsWrap, {
-            actionBtnSize: 80,
-            itemsSize: 45,
-        });
+        var testABtn = new ActionBtn(elemsWrap, 
+        // {
+        //     actionBtnSize: 80,
+        //     itemsSize: 45,
+        // }
+        );
         document.addEventListener('ActionBtnOpened', function() {
 			console.info('is opened');
         })
@@ -37,7 +39,7 @@
 			console.info('is closed');
         })
         testABtn.onOpen(function() {
-            alert('its work!');
+            // alert('its work!');
         })
         open.addEventListener('click', function() {
             testABtn.open();

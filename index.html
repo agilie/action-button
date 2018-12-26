@@ -15,19 +15,16 @@
         <div class="item"></div>
         <div class="item"></div>
     </div>
-    <!-- background for our Action button for goo effect -->
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
-        <defs>
-            <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                <feBlend in="SourceGraphic" in2="goo" />
-            </filter>
-        </defs>
-    </svg>
+
+
+    <button id="open">Open</button>
+    <button id="close">Close</button>
+    <button id="" onclick="console.log(testABtn.getOpenStatus())">getStatus</button>
 
     <script src="common.js"></script>
     <script>
+        var open = document.getElementById('open');
+        var close = document.getElementById('close');
         var elemsWrap = document.getElementById('js-btn-wrap');
         var testABtn = new ActionBtn(elemsWrap, {
             actionBtnSize: 80,
@@ -38,7 +35,16 @@
         })
         document.addEventListener('ActionBtnClosed', function() {
 			console.info('is closed');
-		})
+        })
+        testABtn.onOpen(function() {
+            alert('its work!');
+        })
+        open.addEventListener('click', function() {
+            testABtn.open();
+        })
+        close.addEventListener('click', function() {
+            testABtn.close();
+        })
     </script>
 </body>
 

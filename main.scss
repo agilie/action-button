@@ -12,7 +12,7 @@ $colors: #D32F2F, #FF4081, #7B1FA2, #7C4DFF, #2196F3, #03A9F4, #00BCD4, #009688,
 .addBtn {
   &__wrap {
     position: relative;
-    filter: url("#goo");
+      filter: url("#goo");
     &.top-left {
       .addBtn__item.show-radial {
         &:nth-child(2) {

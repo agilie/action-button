@@ -1,15 +1,38 @@
 /*Settings:
-	1. action-button size, color
-	2. items size, color, gap(distance from action-button)
-	3. do smth when animation is over
-	4. be able to get status of action-button (open or close)
+	2. items gap(distance from action-button)
 Errors:
 	- if items more then 3
 	- if items gap less than (action-button radius + items radius + 20)
 */
 function ActionBtn(elemsContainer, options = {}) {
+	this.getOpenStatus = function() {
+		return isOpen;
+	}
+	this.open = function() {
+		isOpen = true;
+		openItems();
+	}
+	this.close = function() {
+		isOpen = false;
+		closeItems();
+	}
+	this.toggleStatus = function() {
+		isOpen ? closeItems() : openItems();
+	}
+	this.onOpen = function(callback) {
+		document.addEventListener('ActionBtnOpened', function() {
+			callback();
+		})
+	}
+	this.onClose = function(callback) {
+		document.addEventListener('ActionBtnClosed', function() {
+			callback();
+		})
+	}
 	var isOpen = false;
 	var animDuration = 0;
+	var timer1;
+	var timer2;
 	var defaultOptions = {
 		actionBtnSize: 100,
 		actionBtnColor: 'rgb(249, 180, 120)',
@@ -26,7 +49,7 @@ function ActionBtn(elemsContainer, options = {}) {
 		items: Array.prototype.slice.call(elemsContainer.querySelectorAll('*'))
 	}
 	var items = elemsContainer.children;
-
+	var containerBackground = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0"><defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" /><feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" /><feBlend in="SourceGraphic" in2="goo" /></filter></defs></svg>';
 	var actionBtnOpened = new CustomEvent("ActionBtnOpened", {
 		detail: {
 			msg: "Action-button is opened"
@@ -41,19 +64,35 @@ function ActionBtn(elemsContainer, options = {}) {
 		bubbles: true,
 		cancelable: false
 	});
-	init();
+	function getAnimationDuration() {
+		return animDuration;
+	}
+	function startTimer1() {
+		var time = getAnimationDuration();
+		timer1 = setTimeout(function() {
+			elems.btn.dispatchEvent(actionBtnOpened);
+		}, time * 1000);
+	}
+	function stopTimer1() {
+		clearTimeout(timer1);
+	}
+	function startTimer2() {
+		var time = getAnimationDuration();
+		timer2 = setTimeout(function() {
+			elems.btn.dispatchEvent(actionBtnClosed);
+		}, time * 1000);
+	}
+	function stopTimer2() {
+		clearTimeout(timer2);
+	}
 	function init() {
 		configurateItems();
 		elems.container.insertBefore(elems.btn, elems.container.firstChild);
+		elems.container.insertAdjacentHTML('afterend', containerBackground);
 		elems.container.classList.add('addBtn__wrap');
 		elems.container.classList.add(setOpenDirection(settings.itemsOpenDirection));
 	}
-	function OpenTypeException(msg) {
-		this.message = msg;
-	}
-	function OpenDirectionException(msg) {
-		this.message = msg;
-	}
+	init();
 	function setOpenType(type = 'radial') {
 		if (type === 'radial') {
 			return 'show-radial';
@@ -62,7 +101,7 @@ function ActionBtn(elemsContainer, options = {}) {
 		} else if (type === 'vertical') {
 			return 'show-vertical';
 		} else {
-			throw new OpenTypeException('Wrong open type!');
+			throw new Error('Wrong open type!');
 		}
 	}
 	function setOpenDirection(direction = 'top-left') {
@@ -75,7 +114,7 @@ function ActionBtn(elemsContainer, options = {}) {
 		} else if (direction === 'bottom-left') {
 			return 'bottom-left';
 		} else {
-			throw new OpenDirectionException('Wrong open direction!');
+			throw new Error('Wrong open direction!');
 		}
 	}
 	function toggle() {
@@ -92,9 +131,8 @@ function ActionBtn(elemsContainer, options = {}) {
 			items[i].classList.add(toggleClass);
 		}
 		isOpen = true;
-		setTimeout(function() {
-			btnElem.dispatchEvent(actionBtnOpened);
-		}, animDuration * 1000);
+		stopTimer2();
+		startTimer1();
 	}
 	function closeItems() {
 		var toggleClass = setOpenType(settings.itemsOpenType),
@@ -107,9 +145,8 @@ function ActionBtn(elemsContainer, options = {}) {
 			items[i].classList.remove(toggleClass);
 		}
 		isOpen = false;
-		setTimeout(function() {
-			btnElem.dispatchEvent(actionBtnClosed);
-		}, animDuration * 1000);
+		stopTimer1();
+		startTimer2();
 	}
 	function createActionBtn(size, color) {
 		var btn = document.createElement('button');
@@ -133,8 +170,6 @@ function ActionBtn(elemsContainer, options = {}) {
 		})
 		animDuration = parseFloat(items[items.length - 1].style.transitionDelay) + parseFloat(items[items.length - 1].style.transitionDuration);
 	}
-	this.checkOpenStatus = function() {
-		return isOpen;
-	}
 }
+
 

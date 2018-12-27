@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="../../dist/js/common.js"></script>
-    <link rel="stylesheet" href="../../dist/css/main.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -17,10 +17,10 @@
     <script type="text/javascript">
         var elemsWrap = document.getElementById('js-btn-wrap');
         var testABtn = new ActionBtn(elemsWrap, 
-        // {
-        //     actionBtnSize: 80,
-        //     itemsSize: 45,
-        // }
+        {
+            actionBtnSize: 60,
+            itemsSize: 35,
+        }
         );
         document.addEventListener('ActionBtnOpened', function() {
 			console.info('is opened');

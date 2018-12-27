@@ -1,0 +1,137 @@
+body {
+  margin: 100px;
+}
+
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.addBtn {
+  z-index: 10;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+}
+
+.addBtn__wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.addBtn__wrap {
+  position: relative;
+  -webkit-filter: url("#goo");
+          filter: url("#goo");
+}
+
+.addBtn__wrap--active {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.addBtn--open {
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-name: scaleIn;
+          animation-name: scaleIn;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+.addBtn--close {
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-name: scaleInOut;
+          animation-name: scaleInOut;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+.addBtn:focus {
+  outline: none;
+}
+
+.addBtn__item {
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+  background: #ccc;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform ease;
+  transition: -webkit-transform ease;
+  transition: transform ease;
+  transition: transform ease, -webkit-transform ease;
+}
+
+@-webkit-keyframes scaleInOut {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scaleInOut {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scaleIn {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.85);
+            transform: scale(0.85);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=main.css.map */

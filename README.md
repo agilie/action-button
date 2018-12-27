@@ -65,7 +65,7 @@ var actionBtn = new ActionBtn(elemsWrap);
 3. From NPM:
 import our package from your module bundler (webpack)
 ```js
-var actionBtn = require('@agilie/action-button);
+var actionBtn = require('@agilie/action-button');
 ```
 
 ##### As a result:

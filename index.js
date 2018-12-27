@@ -1,4 +1,11 @@
-module.exports =  ActionBtn;
+;(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+		typeof define === 'function' && define.amd ? define(factory) :
+			global.ActionBtn = factory()
+}(this, function () {
+	return ActionBtn;
+}));
+
 function ActionBtn(elemsContainer, options = {}) {
 	this.getOpenStatus = function() {
 		return isOpen;
@@ -232,7 +239,7 @@ function ActionBtn(elemsContainer, options = {}) {
 	}
 	function createWrapper() {
 		var wrap = document.createElement('div');
-		
+
 		wrap.classList.add('addBtn__wrapper');
 		wrap.style.width = `${settings.actionBtnSize}px`;
 		wrap.style.height = `${settings.actionBtnSize}px`;

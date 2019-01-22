@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AddButton plugin</title>
+    <script src="common.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="wrap" id="js-btn-wrap">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <div class="btnsWrap">
+        <button id="open">Open</button>
+        <button id="jsClose">Close</button>
+        <button id="checkStatus">getStatus</button>
+    </div>
+
+    <script type="text/javascript">
+        var opened = document.getElementById('open');
+        var closeBtn = document.getElementById('jsClose');
+        var statusBtn = document.getElementById('checkStatus');
+        var elemsWrap = document.getElementById('js-btn-wrap');
+        var testABtn = new ActionBtn(elemsWrap, 
+        {
+            actionBtnSize: 60,
+            itemsSize: 35,
+        }
+        );
+        document.addEventListener('ActionBtnOpened', function() {
+			console.info('is opened');
+        })
+        document.addEventListener('ActionBtnClosed', function() {
+			console.info('is closed');
+        })
+        testABtn.onOpen(function() {
+            // alert('its work!');
+        })
+        opened.addEventListener('click', function() {
+            testABtn.open();
+        })
+        closeBtn.addEventListener('click', function() {
+            testABtn.close();
+        })
+        statusBtn.addEventListener('click', function() {
+            console.log('---');
+            console.log(testABtn.getOpenStatus());
+        })
+    </script>
+</body>
+
+</html>

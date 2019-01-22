@@ -1,3 +1,13 @@
+body {
+  margin: 100px;
+  text-align: center;
+}
+
+.btnsWrap {
+  position: relative;
+  padding: 0 0 100px;
+}
+
 .wrap {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -10,8 +10,8 @@ This is fixed floating action button.
 
 1. From CDN:
 ```html
-  <script src="https://unpkg.com/@agilie/action-button@0.1.1/dist/css/main.css"></script>
-  <script src="https://unpkg.com/@agilie/action-button@0.1.1/dist/js/common.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@agilie/action-button@0.1.4/main.css">
+  <script src="https://unpkg.com/@agilie/action-button@0.1.4/index.js"></script>
 ```
 2. From Git Repository:
 ```
@@ -28,8 +28,8 @@ $ npm install @agilie/action-button
 1. From CDN:
 ```html
 <head>
-  <script src="https://unpkg.com/@agilie/action-button@0.1.1/dist/css/main.css"></script>
-  <script src="https://unpkg.com/@agilie/action-button@0.1.1/dist/js/common.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@agilie/action-button@0.1.4/main.css">
+  <script src="https://unpkg.com/@agilie/action-button@0.1.4/index.js"></script>
 </head>
 <body>
   <div class="wrap" id="js-btn-wrap">
@@ -45,9 +45,10 @@ var elemsWrap = document.getElementById('js-btn-wrap');
 var actionBtn = new ActionBtn(elemsWrap);
 ```
 2. From Git Repository:
+```html
 <head>
-  <script src="AddButton/dist/css/main.css"></script>
-  <script src="AddButton/dist/js/common.js"></script>
+  <link rel="stylesheet" href="AddButton/main.css">
+  <script src="AddButton/index.js"></script>
 </head>
 <body>
   <div class="wrap" id="js-btn-wrap">
@@ -62,8 +63,7 @@ var actionBtn = new ActionBtn(elemsWrap);
 var elemsWrap = document.getElementById('js-btn-wrap');
 var actionBtn = new ActionBtn(elemsWrap);
 ```
-3. From NPM:
-import our package from your module bundler (webpack)
+3. From NPM: import our package from your module bundler (webpack)
 ```js
 var actionBtn = require('@agilie/action-button');
 ```

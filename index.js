@@ -11,11 +11,9 @@ function ActionBtn(elemsContainer, options = {}) {
 		return isOpen;
 	}
 	this.open = function() {
-		isOpen = true;
 		openItems();
 	}
 	this.close = function() {
-		isOpen = false;
 		closeItems();
 	}
 	this.toggleStatus = function() {

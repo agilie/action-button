@@ -3,11 +3,9 @@ function ActionBtn(elemsContainer, options = {}) {
 		return isOpen;
 	}
 	this.open = function() {
-		isOpen = true;
 		openItems();
 	}
 	this.close = function() {
-		isOpen = false;
 		closeItems();
 	}
 	this.toggleStatus = function() {
@@ -231,7 +229,7 @@ function ActionBtn(elemsContainer, options = {}) {
 	}
 	function createWrapper() {
 		var wrap = document.createElement('div');
-		
+
 		wrap.classList.add('addBtn__wrapper');
 		wrap.style.width = `${settings.actionBtnSize}px`;
 		wrap.style.height = `${settings.actionBtnSize}px`;

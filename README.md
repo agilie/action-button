@@ -96,8 +96,8 @@ var actionBtn = require('@agilie/action-button');
     var instances = new ActionBtn(elemsContainer);
   </script>
 ```
-![Preview](examples/default/action-button_01.png)
-![Preview](examples/default/action-button_02.png)
+![Preview](examples/action-button_01.png)
+![Preview](examples/action-button_02.png)
 
 ## Contact us
 If you have any questions, suggestions or just need a help with web or mobile development, please email us at <web@agilie.com>. You can ask us anything from basic to complex questions.
